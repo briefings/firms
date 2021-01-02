@@ -1,2 +1,2 @@
 # firms
-BriefInvestigations: via Data of Firms
+Brief Investigations: via Data of Firms
