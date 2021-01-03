@@ -1,0 +1,23 @@
+{
+  "type": "struct",
+  "fields": [
+    {
+      "name": "department",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The department."
+      }
+    },
+    {
+      "name": "division",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The division."
+      }
+    }
+  ]
+}

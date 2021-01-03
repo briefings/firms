@@ -1,0 +1,32 @@
+{
+  "type": "struct",
+  "fields": [
+    {
+      "name": "region_id",
+      "type": "integer",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The region identity number. Unique."
+      }
+    },
+    {
+      "name": "region",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The region name."
+      }
+    },
+    {
+      "name": "country",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The country of the region."
+      }
+    }
+  ]
+}

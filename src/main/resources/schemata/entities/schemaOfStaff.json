@@ -1,0 +1,84 @@
+{
+  "type": "struct",
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The identity number of a staff member. Unique."
+      }
+    },
+    {
+      "name": "surname",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The surname of a staff member."
+      }
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The email address."
+      }
+    },
+    {
+      "name": "gender",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Gender"
+      }
+    },
+    {
+      "name": "department",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The department."
+      }
+    },
+    {
+      "name": "start_date",
+      "type": "date",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The date.  Format yyyy-mm-dd"
+      }
+    },
+    {
+      "name": "salary",
+      "type": "long",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Salary"
+      }
+    },{
+      "name": "job_title",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Job title."
+      }
+    },{
+      "name": "region_id",
+      "type": "integer",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The region identity number."
+      }
+    }
+  ]
+}
