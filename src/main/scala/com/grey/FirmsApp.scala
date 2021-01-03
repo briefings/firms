@@ -19,8 +19,6 @@ object FirmsApp {
     // Spark logs level
     spark.sparkContext.setLogLevel("ERROR")
 
-
-
   }
 
 }
