@@ -1,0 +1,141 @@
+{
+  "type": "struct",
+  "fields": [
+    {
+      "name": "uuid",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Universally Unique Identifier"
+      }
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Name of investor"
+      }
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Type of investor"
+      }
+    },
+    {
+      "name": "permalink",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Permanent link"
+      }
+    },
+    {
+      "name": "cb_url",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "CrunchBase Uniform Resource Locator"
+      }
+    },
+    {
+      "name": "rank",
+      "type": "integer",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Rank"
+      }
+    },
+    {
+      "name": "created_date",
+      "type": "timestamp",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The created at timestamp yyyy-mm-dd HH:MM:ss"
+      }
+    },
+    {
+      "name": "updated_date",
+      "type": "timestamp",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The updated at timestamp yyyy-mm-dd HH:MM:ss"
+      }
+    },{
+      "name": "entity_uuid",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Investing Entity Universally Unique Identifier"
+      }
+    },
+    {
+      "name": "entity_name",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Investing Entity Name"
+      }
+    },{
+      "name": "entity_type",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Investing Entity Type"
+      }
+    },{
+      "name": "announced_on",
+      "type": "date",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The date the funding was announced.  Format yyyy-mm-dd"
+      }
+    },
+
+
+    {
+      "name": "raised_amount_usd",
+      "type": "float",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Raised amount in US dollars"
+      }
+    },
+    {
+      "name": "raised_amount",
+      "type": "float",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The raised amount"
+      }
+    },
+    {
+      "name": "raised_amount_currency_code",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The currency of the raised amount"
+      }
+    }
+
+
+  ]
+}
