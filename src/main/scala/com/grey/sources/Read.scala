@@ -4,11 +4,11 @@ import java.nio.file.Paths
 
 import com.grey.directories.LocalSettings
 import com.grey.inspectors.InspectArguments
-import org.apache.spark.sql.types.StructType
 import org.apache.spark.sql._
+import org.apache.spark.sql.types.StructType
 
-import scala.util.control.Exception
 import scala.util.Try
+import scala.util.control.Exception
 
 /**
   *
@@ -26,23 +26,20 @@ class Read(spark: SparkSession) {
     // Schema of data
     val schemaOf: Try[StructType] = new SchemaOf(spark = spark).
       schemaOf(src = src, database = database, parameters = parameters)
-
-
     val caseClassOf = CaseClassOf.caseClassOf(schema = schemaOf.get)
 
-
-    // This function contructs a path string w.r.t. a database & file name; in this
+    // This function constructs a path string w.r.t. a database & file name; in this
     // context the database is the directory basename of a data set ...
     val dataPath: (String, String) => String = (databaseName: String, fileName: String) => {
       Paths.get(localSettings.resourcesDirectory + parameters.data.basename, databaseName, fileName).toString
     }
 
+    // Data path string
     val dataPathString: String = database match {
       case "crunchbase" => dataPath(parameters.data.crunchbase, src)
       case "entities" => dataPath(parameters.data.entities, src)
       case _ => sys.error(s"""Unknown database '$database'""")
     }
-
 
     // Sections
     val data = Exception.allCatch.withTry(
@@ -55,12 +52,11 @@ class Read(spark: SparkSession) {
         .load(dataPathString)
     )
 
-    if (data.isSuccess){
+    if (data.isSuccess) {
       (data.get, data.get.as(caseClassOf))
     } else {
       sys.error(data.failed.get.getMessage)
     }
-
 
   }
 
