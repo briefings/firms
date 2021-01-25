@@ -214,7 +214,7 @@
       }
     },{
       "name": "price_usd",
-      "type": "long",
+      "type": "float",
       "nullable": true,
       "metadata":
       {
@@ -223,7 +223,7 @@
     },
     {
       "name": "price",
-      "type": "long",
+      "type": "float",
       "nullable": true,
       "metadata":
       {
@@ -232,7 +232,7 @@
     },
     {
       "name": "price_currency_code",
-      "type": "long",
+      "type": "string",
       "nullable": true,
       "metadata":
       {
