@@ -1,4 +1,4 @@
-package com.grey.crunchbase
+package com.grey.sources
 
 
 import java.nio.file.Paths
@@ -17,25 +17,31 @@ class SchemaOf(spark: SparkSession) {
 
   private val localSettings = new LocalSettings()
 
-  def schemaOf(src: String, parameters: InspectArguments.Parameters): Try[StructType] = {
+  def schemaOf(src: String, database: String, parameters: InspectArguments.Parameters): Try[StructType] = {
 
     // Logging
     val logger: Logger = Logger(classOf[SchemaOf])
 
-    // The directory of schema files
-    val directoryString = localSettings.resourcesDirectory + parameters.schemata.basename +
-      parameters.schemata.crunchbase
+    // Schema Path
+    val schemaPath: (String, String) => String = (databaseName: String, fileName: String) => {
+      Paths.get(localSettings.resourcesDirectory + parameters.schemata.basename, 
+        databaseName, fileName).toString
+    }
 
-    // The schema file in question
-    val fileString: String = "schemaOf" + src.split("\\.")(0).capitalize + ".json"
+    // Schema File
+    val schemaFile = "schemaOf" + src.split("\\.")(0).capitalize + ".json"
 
-    // Hence
-    val directoryAndFileString = Paths.get(directoryString, fileString).toString
-    logger.info(fileString)
+    // Paths
+    val schemaPathString: String = database match {
+      case "crunchbase" => schemaPath(parameters.schemata.crunchbase, schemaFile)
+      case "entities" => schemaPath(parameters.schemata.entities, schemaFile)
+      case  _ => sys.error(s"""Unknown database '$database'""")
+    }
+    logger.info(schemaPathString)
 
     // Read-in the schema
     val fieldProperties: Try[RDD[String]] = Exception.allCatch.withTry(
-      spark.sparkContext.textFile(directoryAndFileString)
+      spark.sparkContext.textFile(schemaPathString)
     )
 
     // Convert schema to StructType
