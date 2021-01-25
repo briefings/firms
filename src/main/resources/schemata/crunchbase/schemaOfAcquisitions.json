@@ -1,0 +1,245 @@
+{
+  "type": "struct",
+  "fields": [
+    {
+      "name": "uuid",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Universally Unique Identifier"
+      }
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Name of investor"
+      }
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Type of investor"
+      }
+    },
+    {
+      "name": "permalink",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Permanent link"
+      }
+    },
+    {
+      "name": "cb_url",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "CrunchBase Uniform Resource Locator"
+      }
+    },
+    {
+      "name": "rank",
+      "type": "integer",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Rank"
+      }
+    },
+    {
+      "name": "created_date",
+      "type": "timestamp",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The created at timestamp yyyy-mm-dd HH:MM:ss"
+      }
+    },
+    {
+      "name": "updated_date",
+      "type": "timestamp",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The updated at timestamp yyyy-mm-dd HH:MM:ss"
+      }
+    },{
+      "name": "acquiree_uuid",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The Universally Unique Identifier of the acquiree"
+      }
+    },
+    {
+      "name": "acquiree_name",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The name of the acquiree"
+      }
+    },
+    {
+      "name": "acquiree_cb_url",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The CrunchBase Uniform Resource Locator of the acquiree"
+      }
+    },
+    {
+      "name": "acquiree_country_code",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Probably the country wherein the acquiree is registered"
+      }
+    },
+    {
+      "name": "acquiree_state_code",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "If applicable, probably the state wherein the acquiree is registered"
+      }
+    },
+    {
+      "name": "acquiree_region",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Probably the region, of a country, wherein the acquiree is registered"
+      }
+    },
+    {
+      "name": "acquiree_city",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "If applicable, the city, of a country, wherein the acquiree is registered"
+      }
+    },{
+      "name": "acquirer_uuid",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The Universally Unique Identifier of the acquirer"
+      }
+    },
+    {
+      "name": "acquirer_name",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The name of the acquirer"
+      }
+    },
+    {
+      "name": "acquirer_cb_url",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The CrunchBase Uniform Resource Locator of the acquirer"
+      }
+    },
+    {
+      "name": "acquirer_country_code",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Probably the country wherein the acquirer is registered"
+      }
+    },
+    {
+      "name": "acquirer_state_code",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "If applicable, probably the state wherein the acquirer is registered"
+      }
+    },
+    {
+      "name": "acquirer_region",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Probably the region, of a country, wherein the acquirer is registered"
+      }
+    },
+    {
+      "name": "acquirer_city",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "If applicable, the city, of a country, wherein the acquirer is registered"
+      }
+    },{
+      "name": "acquisition_type",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The acquisition type.  IBO stands for Institutional Buyout"
+      }
+    },{
+      "name": "acquired_on",
+      "type": "date",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The acquisition date"
+      }
+    },{
+      "name": "price_usd",
+      "type": "long",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The acquisition price in U.S. dollars"
+      }
+    },
+    {
+      "name": "price",
+      "type": "long",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The acquisition price"
+      }
+    },
+    {
+      "name": "price_currency_code",
+      "type": "long",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The currency code of the acquisition price"
+      }
+    }
+
+
+  ]
+}
