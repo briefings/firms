@@ -4,8 +4,6 @@ import org.apache.spark.sql.types._
 
 class ScalaDataType {
 
-  // type TypeConverter = DataType => String
-
   def scalaDataType(dataTypeOfVariable: DataType): String = {
 
     dataTypeOfVariable match {
