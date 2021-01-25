@@ -17,6 +17,7 @@ import scala.util.control.Exception
 class Read(spark: SparkSession) {
 
   private val localSettings = new LocalSettings()
+  private val inspection = new Inspection()
 
   def read(src: String, database: String, parameters: InspectArguments.Parameters): (DataFrame, Dataset[Row]) = {
 
@@ -53,7 +54,8 @@ class Read(spark: SparkSession) {
     )
 
     if (data.isSuccess) {
-      (data.get, data.get.as(caseClassOf))
+      val frame: DataFrame = inspection.inspection(src = src, database = database, data = data.get)
+      (frame, frame.as(caseClassOf))
     } else {
       sys.error(data.failed.get.getMessage)
     }
