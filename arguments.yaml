@@ -1,0 +1,9 @@
+data:
+  basename: "data" # relative to resources
+  typeOf: ".csv"
+  crunchbase: "crunchbase"
+  entities: "entities"
+schemata:
+  basename: "schemata" # relative to resources
+  crunchbase: "crunchbase"
+  entities: "entities"
