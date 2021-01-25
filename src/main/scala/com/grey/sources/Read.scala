@@ -5,10 +5,9 @@ import java.nio.file.Paths
 import com.grey.directories.LocalSettings
 import com.grey.inspectors.InspectArguments
 import org.apache.spark.sql.types.StructType
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql._
 
 import scala.util.control.Exception
-
 import scala.util.Try
 
 /**
@@ -19,7 +18,7 @@ class Read(spark: SparkSession) {
 
   private val localSettings = new LocalSettings()
 
-  def read(src: String, database: String, parameters: InspectArguments.Parameters): DataFrame = {
+  def read(src: String, database: String, parameters: InspectArguments.Parameters): (DataFrame, Dataset[Row]) = {
 
     // Implicits
     // import spark.implicits._
@@ -27,6 +26,10 @@ class Read(spark: SparkSession) {
     // Schema of data
     val schemaOf: Try[StructType] = new SchemaOf(spark = spark).
       schemaOf(src = src, database = database, parameters = parameters)
+
+
+    val caseClassOf = CaseClassOf.caseClassOf(schema = schemaOf.get)
+
 
     // This function contructs a path string w.r.t. a database & file name; in this
     // context the database is the directory basename of a data set ...
@@ -53,7 +56,7 @@ class Read(spark: SparkSession) {
     )
 
     if (data.isSuccess){
-      data.get
+      (data.get, data.get.as(caseClassOf))
     } else {
       sys.error(data.failed.get.getMessage)
     }
