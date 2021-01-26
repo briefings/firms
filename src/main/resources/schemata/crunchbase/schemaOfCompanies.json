@@ -1,0 +1,130 @@
+{
+  "type": "struct",
+  "fields": [
+    {
+      "name": "uuid",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The Universally Unique Identifier of a company"
+      }
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "A company name"
+      }
+    },
+    {
+      "name": "cb_url",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The CrunchBase Uniform Resource Locator of a company"
+      }
+    },
+    {
+      "name": "legal_name",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The legal name of a company"
+      }
+    },
+    {
+      "name": "domain",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The internet domain string of a company"
+      }
+    },
+    {
+      "name": "homepage_url",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The home page of a company"
+      }
+    },
+    {
+      "name": "country_code",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The ISO 3166-1 alpha-3 three letter country code of the country wherein a company is registered"
+      }
+    },
+    {
+      "name": "state_code",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "If applicable, the state wherein a company is registered"
+      }
+    },
+    {
+      "name": "region",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The region, of a country, wherein a company is registered"
+      }
+    },
+    {
+      "name": "city",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "If applicable, the city, of a country, wherein a company is registered"
+      }
+    },{
+      "name": "address",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The address of a company"
+      }
+    },
+    {
+      "name": "postal_code",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The postal code of a company"
+      }
+    },
+    {
+      "name": "short_description",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "A short description"
+      }
+    },
+    {
+      "name": "phone",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Telephone number string"
+      }
+    }
+  ]
+}

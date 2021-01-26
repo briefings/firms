@@ -14,12 +14,12 @@ import scala.util.control.Exception
   *
   * @param spark : An instance of SparkSession
   */
-class Read(spark: SparkSession) {
+class DataRead(spark: SparkSession) {
 
   private val localSettings = new LocalSettings()
   private val inspection = new Inspection()
 
-  def read(src: String, database: String, parameters: InspectArguments.Parameters): (DataFrame, Dataset[Row]) = {
+  def dataRead(src: String, database: String, parameters: InspectArguments.Parameters): (DataFrame, Dataset[Row]) = {
 
     // Implicits
     // import spark.implicits._
