@@ -24,4 +24,23 @@ class InspectionFunctions {
 
   }
 
+
+  def companies(data: DataFrame): DataFrame = {
+
+    // The aim herein is to ensure that the contents of the listed fields are upper case text
+    val reset = List("country_code", "state_code")
+
+    // Mutable variable form
+    var frame = data
+
+    // Upper case
+    reset.foreach { name =>
+      val temporary: String = name + "_temporary"
+      frame = frame.withColumn(temporary, upper(col(name))).drop(col(name))
+        .withColumnRenamed(existingName = temporary, newName = name)
+    }
+    frame
+
+  }
+
 }
