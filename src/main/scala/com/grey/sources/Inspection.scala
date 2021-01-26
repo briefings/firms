@@ -11,6 +11,7 @@ class Inspection() {
     (src, database) match {
       case ("acquisitions.csv", "crunchbase") => inspectionFunctions.acquisitions(data = data)
       case ("companies.csv", "crunchbase") => inspectionFunctions.companies(data = data)
+      case ("investors.csv", "crunchbase") => inspectionFunctions.investors(data = data)
       case _ => data
     }
 
