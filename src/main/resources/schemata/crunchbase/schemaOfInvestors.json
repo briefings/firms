@@ -1,0 +1,226 @@
+{
+  "type": "struct",
+  "fields": [
+    {
+      "name": "uuid",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Universally Unique Identifier"
+      }
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Investor name"
+      }
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Type of investor"
+      }
+    },
+    {
+      "name": "permalink",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Permanent link"
+      }
+    },
+    {
+      "name": "cb_url",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "CrunchBase Uniform Resource Locator"
+      }
+    },
+    {
+      "name": "rank",
+      "type": "double",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Rank"
+      }
+    },
+    {
+      "name": "created_at",
+      "type": "timestamp",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The created at timestamp yyyy-mm-dd HH:MM:ss"
+      }
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamp",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The updated at timestamp yyyy-mm-dd HH:MM:ss"
+      }
+    },{
+      "name": "roles",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "Akin to classifications, e.g., investor, company, etc."
+      }
+    },
+    {
+      "name": "domain",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The internet domain string"
+      }
+    },
+    {
+      "name": "country_code",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Probably the company registration country"
+      }
+    },
+    {
+      "name": "state_code",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "If applicable, probably the state of the country wherein a company is registered"
+      }
+    },
+    {
+      "name": "region",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Corresponding country region"
+      }
+    },
+    {
+      "name": "city",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "If applicable, the city wherein the company is registered"
+      }
+    },{
+      "name": "investor_types",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The types of ..."
+      }
+    },{
+      "name": "investment_count",
+      "type": "double",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Probably the number of investments thus far ..."
+      }
+    },{
+      "name": "total_funding_usd",
+      "type": "double",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Probably the total amount that has been invested thus far ... in U.S. Dollars"
+      }
+    },{
+      "name": "total_funding",
+      "type": "double",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "Probably the total amount that has been invested thus far, in terms of the total funding currency code"
+      }
+    },{
+      "name": "total_funding_currency_code",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The currency code of total funding"
+      }
+    },
+    {
+      "name": "founded_on",
+      "type": "date",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "The date, yyyy-mm-dd, the investment firm was founded"
+      }
+    },
+    {
+      "name": "closed_on",
+      "type": "date",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "If applicable, the date, yyyy-mm-dd, the investment firm was closed"
+      }
+    },
+    {
+      "name": "facebook_url",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "If applicable, the Facebook uniform resource locator of the investment firm"
+      }
+    },
+    {
+      "name": "linkedin_url",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "If applicable, the LinkedIn uniform resource locator of the investment firm"
+      }
+    },
+    {
+      "name": "twitter_url",
+      "type": "string",
+      "nullable": true,
+      "metadata":
+      {
+        "comment": "If applicable, the Twitter uniform resource locator of the investment firm"
+      }
+    },
+    {
+      "name": "logo_url",
+      "type": "string",
+      "nullable": false,
+      "metadata":
+      {
+        "comment": "The internet, or cloud, location of the investment firm logo used by CrunchBase"
+      }
+    }
+
+
+  ]
+}
