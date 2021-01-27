@@ -8,21 +8,19 @@ class InnerJoin(spark: SparkSession) {
 
     println("\n\n Dataset Inner Join")
 
-    // For encoding (https://jaceklaskowski.gitbooks.io/mastering-apache-spark/spark-sql-Encoder.html)
-    // For implicit conversions, e.g., converting a RDD to a DataFrames.
-    // In order to use the "$" notation.
+    // Import implicits for
+    //    encoding (https://jaceklaskowski.gitbooks.io/mastering-apache-spark/spark-sql-Encoder.html)
+    //    implicit conversions, e.g., converting a RDD to a DataFrames.
+    //    access to the "$" notation.
     import spark.implicits._
 
     // Simple
-    acquisitions.select($"acquirer_uuid", $"acquirer_name", $"acquisition_type", $"acquired_on", $"acquiree_name")
-      .join(companies.select($"uuid", $"name", $"short_description"),
-        acquisitions("acquirer_uuid") === companies("uuid"),
-        joinType = "inner").show(5)
+    val innerJoin = companies.select($"uuid", $"name", $"short_description")
+      .join(acquisitions.select($"acquirer_uuid".as("uuid"), $"acquirer_name".as("alt_name")),
+        Seq("uuid"), joinType = "inner").distinct()
 
-    acquisitions.select($"acquirer_uuid", $"acquirer_name", $"acquisition_type", $"acquired_on", $"acquiree_name")
-      .join(companies.select($"uuid".as("acquirer_uuid"), $"name", $"short_description"),
-        Seq("acquirer_uuid"), joinType = "inner").show(5)
-
+    println("firms that made acquisitions: " + innerJoin.count())
+    innerJoin.show(5)
 
   }
 
