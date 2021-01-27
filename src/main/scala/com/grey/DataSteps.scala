@@ -42,14 +42,18 @@ class DataSteps(spark: SparkSession) {
     investorsFrame.createOrReplaceTempView(viewName = "investors")
 
     // Previews
-    acquisitionsSet.select($"acquiree_uuid", $"acquiree_name", $"acquirer_uuid", $"acquirer_name",
-      $"acquirer_country_code", $"acquisition_type", $"price", $"price_currency_code").show(5)
-    companiesSet.select($"uuid", $"name", $"short_description", $"country_code").show(5)
-    investorsSet.select($"uuid", $"name", $"country_code", $"founded_on").show(5)
+    println("Acquisitions: " + acquisitionsSet.count())
+    println("Companies: " + companiesSet.count(), companiesSet.distinct().count())
+    println("Investors: " + investorsSet.count(), investorsSet.distinct().count())
 
     // Queries
     new com.grey.sql.InnerJoin(spark = spark).innerJoin()
-    new com.grey.sets.InnerJoin(spark = spark).innerJoin(acquisitions = acquisitionsSet, companies = companiesSet, investors = investorsSet)
+    new com.grey.sets.InnerJoin(spark = spark).innerJoin(acquisitions = acquisitionsSet, companies = companiesSet,
+      investors = investorsSet)
+
+    new com.grey.sql.OuterJoin(spark = spark).outerJoin()
+    new com.grey.sets.OuterJoin(spark = spark).outerJoin(acquisitions = acquisitionsSet, companies = companiesSet,
+      investors = investorsSet)
 
   }
 

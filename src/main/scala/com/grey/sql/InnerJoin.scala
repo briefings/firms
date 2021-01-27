@@ -9,11 +9,13 @@ class InnerJoin(spark: SparkSession) {
     println("\n\n SQL Inner Join")
 
     // Simple
-    spark.sql("SELECT acquisitions.acquirer_uuid, acquisitions.acquirer_name, " +
-      "acquisitions.acquisition_type, acquisitions.acquired_on, acquisitions.acquiree_name, " +
-      "companies.name, companies.short_description " +
-      "FROM acquisitions INNER JOIN companies " +
-      "ON (acquisitions.acquirer_uuid  = companies.uuid)").show(5)
+    val innerJoin = spark.sql("SELECT distinct companies.uuid, companies.name, companies.short_description," +
+      "acquisitions.acquirer_name as alt_name " +
+      "FROM companies INNER JOIN acquisitions " +
+      "ON (companies.uuid = acquisitions.acquirer_uuid)")
+
+    println("firms that made acquisitions: " + innerJoin.count())
+    innerJoin.show(5)
 
 
   }
