@@ -3,7 +3,7 @@ package com.grey
 
 import com.grey.inspectors.InspectArguments
 import com.grey.sources.DataRead
-import org.apache.spark.sql._
+import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 import org.apache.spark.storage.StorageLevel
 
 class DataSteps(spark: SparkSession) {
@@ -11,8 +11,6 @@ class DataSteps(spark: SparkSession) {
   val dataRead = new DataRead(spark = spark)
 
   def dataSteps(parameters: InspectArguments.Parameters): Unit = {
-
-    import spark.implicits._
 
     // Acquisitions
     val (acquisitionsFrame: DataFrame, acquisitionsSet: Dataset[Row]) = dataRead.
