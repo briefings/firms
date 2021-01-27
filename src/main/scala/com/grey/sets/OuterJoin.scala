@@ -15,11 +15,13 @@ class OuterJoin(spark: SparkSession) {
     import spark.implicits._
 
     // left join
-    val leftJoin = companies.select($"uuid", $"name")
-      .join(investors.select($"uuid", $"name".as("investor_name"), $"type", $"rank", $"created_at"),
-        Seq("uuid"), joinType = "left_outer").orderBy($"created_at".asc_nulls_last)
+    val leftJoin = investors.select($"uuid", $"name", $"type", $"investment_count", $"created_at")
+      .join(companies.select($"uuid", $"country_code", $"short_description"),
+        Seq("uuid"), joinType = "left_outer")
+      .where($"investment_count".isNotNull)
+      .orderBy($"created_at".asc_nulls_last)
 
-    println("left join: " + leftJoin.count())
+    println("investors that have one or more investments on record: " + leftJoin.count())
     leftJoin.show(5)
 
 
