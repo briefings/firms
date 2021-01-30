@@ -12,7 +12,7 @@
 
 <br/>
 
-#### Sources
+### Sources
 
 The data sets used herein are adaptations of
 
@@ -21,9 +21,9 @@ The data sets used herein are adaptations of
 
 <br/>
 
-#### Development Notes
+### Development Notes
 
-##### Logging
+#### Logging
 
 * [scala-logging](https://index.scala-lang.org/lightbend/scala-logging/scala-logging/3.9.2?target=_2.11) <br/>
     ```
@@ -55,7 +55,7 @@ The data sets used herein are adaptations of
 
 <br/>
 
-##### Software
+#### Software
 
 *  Java <br/> 
     ```
@@ -99,7 +99,7 @@ In terms of packaging, **Maven**, instead of **Scala Build Tool** (SBT), is now 
 
 <br/>
 
-##### Running Apache Spark Packages 
+#### Running Apache Spark Packages 
 
 * Either <br/>
     ```sbtshell
@@ -124,7 +124,9 @@ In terms of packaging, **Maven**, instead of **Scala Build Tool** (SBT), is now 
     
     The latter allows for computation analysis via the Spark Web <abbr title="User Interface">UI</abbr>.
 
-
+<br/>
+<br/>
+<br/>
 
 <img src="https://render.githubusercontent.com/render/math?math={\frac{1}{2}}"></img>
 
