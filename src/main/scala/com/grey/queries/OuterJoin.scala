@@ -9,6 +9,7 @@ import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 class OuterJoin(spark: SparkSession) {
 
   /**
+    * Focus: left outer join
     *
     * @param acquisitions: The Dataset of acquisitions by companies
     * @param companies: The Dataset of companies
@@ -55,8 +56,6 @@ class OuterJoin(spark: SparkSession) {
       s"${leftJoin.count()}, dataset: ${leftJoinSet.count()}")
 
     leftJoinSet.show(5)
-
-
 
 
   }
