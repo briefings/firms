@@ -12,46 +12,49 @@ class DataSteps(spark: SparkSession) {
 
   def dataSteps(parameters: InspectArguments.Parameters): Unit = {
 
-    // Acquisitions
+
+    /**
+      * Acquisitions
+      */
     val (acquisitionsFrame: DataFrame, acquisitionsSet: Dataset[Row]) = dataRead.
       dataRead(src = "acquisitions.csv", database = "crunchbase", parameters = parameters)
-
-    // ... persistence
     acquisitionsFrame.persist(StorageLevel.MEMORY_ONLY)
     acquisitionsSet.persist(StorageLevel.MEMORY_ONLY)
     acquisitionsFrame.createOrReplaceTempView(viewName = "acquisitions")
 
-    // Companies
+
+    /**
+      * Companies
+      */
     val (companiesFrame: DataFrame, companiesSet: Dataset[Row]) = dataRead.
       dataRead(src = "companies.csv", database = "crunchbase", parameters = parameters)
-
-    // ... persistence
     companiesFrame.cache()
     companiesSet.cache()
     companiesFrame.createOrReplaceTempView(viewName = "companies")
 
-    // Investors
+
+    /**
+      * Investors
+      */
     val (investorsFrame: DataFrame, investorsSet: Dataset[Row]) = dataRead.
       dataRead(src = "investors.csv", database = "crunchbase", parameters = parameters)
-
-    // ... persistence
     investorsFrame.cache()
     investorsSet.cache()
     investorsFrame.createOrReplaceTempView(viewName = "investors")
 
-    // Previews
-    println("Acquisitions: " + acquisitionsSet.count())
-    println("Companies: " + companiesSet.count(), companiesSet.distinct().count())
-    println("Investors: " + investorsSet.count(), investorsSet.distinct().count())
+
+    // A summary of the temporary tables
+    println("\n\nIn relation to SQL, the temporary tables are")
+    spark.sql("SHOW TABLES").show()
+
 
     // Queries
-    new com.grey.sql.InnerJoin(spark = spark).innerJoin()
-    new com.grey.sets.InnerJoin(spark = spark).innerJoin(acquisitions = acquisitionsSet, companies = companiesSet,
+    new com.grey.queries.InnerJoin(spark = spark).innerJoin(acquisitions = acquisitionsSet, companies = companiesSet,
       investors = investorsSet)
 
-    new com.grey.sql.OuterJoin(spark = spark).outerJoin()
-    new com.grey.sets.OuterJoin(spark = spark).outerJoin(acquisitions = acquisitionsSet, companies = companiesSet,
+    new com.grey.queries.OuterJoin(spark = spark).outerJoin(acquisitions = acquisitionsSet, companies = companiesSet,
       investors = investorsSet)
+
 
   }
 
