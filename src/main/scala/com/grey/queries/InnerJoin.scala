@@ -9,6 +9,7 @@ import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 class InnerJoin(spark: SparkSession) {
 
   /**
+    * Focus: inner join
     *
     * @param acquisitions: The Dataset of acquisitions by companies
     * @param companies: The Dataset of companies
