@@ -19,8 +19,8 @@
 
     <scm>
         <url>git@github.com:briefings/firms.git</url>
-        <connection>scm:git:${project.scm.url</connection>
-        <developerConnection>scm:git:${project.scm.url</developerConnection>
+        <connection>scm:git:${project.scm.url}</connection>
+        <developerConnection>scm:git:${project.scm.url}</developerConnection>
     </scm>
 
     <dependencies>
